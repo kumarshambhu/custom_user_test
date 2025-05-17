@@ -34,7 +34,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/token/blacklist/",
+					"raw": "http://localhost:8000/api/users/logout/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -120,7 +120,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/userdetails/",
+					"raw": "http://localhost:8000/api/users/details/",
 					"protocol": "http",
 					"host": [
 						"localhost"
