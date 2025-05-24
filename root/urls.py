@@ -1,15 +1,18 @@
 from django.contrib import admin
-from django.http import JsonResponse
 from django.urls import path, include
-from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenVerifyView, TokenObtainPairView, TokenRefreshView
+
+from root.views import CrashTestView
+from utils.common_utils import standard_json_response
 
 
 def error_404(request, exception):
-    return JsonResponse({"error": "API Not Found"}, status=404)
+    return standard_json_response(False, "Unable to Find API", "API Not Found", 404)
 
-def error_500(request,):
-    return JsonResponse({"error": "Server error"}, status=500)
+
+def error_500(request, ):
+    return standard_json_response(False, "Error in processing on server", "Server error", 500)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,6 +21,8 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
     path('api/users/', include('accounts.urls')),
+
+    path('api/crash/', CrashTestView.as_view()),
 ]
 
 handler404 = error_404
