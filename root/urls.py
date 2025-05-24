@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/crash/', CrashTestView.as_view()),
 
     path('api/users/', include('accounts.urls')),
+    path('api/test/', include('testdata.urls')),
 ]
 
 

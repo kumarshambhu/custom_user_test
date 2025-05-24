@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 
+from utils.middleware import UserBannedException
 
 
 def custom_404_view(request, exception:Exception) -> JsonResponse:
@@ -21,7 +22,7 @@ def custom_500_view(request):
 @permission_classes([AllowAny])
 def api_exception_handler(request,):
     print('api_exception_handler', request)
-    #raise UserBannedException("This user is banned.")
+    raise UserBannedException("This user is banned.")
 
 @permission_classes([AllowAny])
 class CrashTestView(APIView):
