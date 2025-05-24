@@ -14,7 +14,7 @@ def status_521(request):
     if request.method == 'POST':
         return JsonResponse({'status': 'POST'})
     elif request.method == 'GET':
-        raise CustomExceptionHandler('test')
+        raise CustomExceptionHandler(134, 'You are not allowed to do this', "Hello")
 
     return None
 
